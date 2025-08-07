@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
+      <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300 overflow-x-hidden w-full max-w-full">
         <Header />
         <Hero />
         <AICopilot />

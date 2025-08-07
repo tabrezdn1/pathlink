@@ -174,10 +174,10 @@ const Hero: React.FC = () => {
           {/* Stats */}
           <motion.div variants={itemVariants} className="mb-12 sm:mb-16">
             {/* Mobile: Horizontal scroll */}
-            <div className="block sm:hidden overflow-hidden">
+            <div className="block sm:hidden overflow-hidden w-full">
               <div
                 className="flex gap-3 overflow-x-auto pb-4 px-4 scrollbar-hide"
-                style={{ scrollSnapType: 'x mandatory' }}
+                style={{ scrollSnapType: 'x mandatory', width: '100%', maxWidth: '100vw' }}
               >
                 {stats.map((stat, index) => (
                   <motion.div
@@ -236,10 +236,10 @@ const Hero: React.FC = () => {
             </p>
 
             {/* Mobile: Horizontal scroll */}
-            <div className="block sm:hidden overflow-hidden">
+            <div className="block sm:hidden overflow-hidden w-full">
               <div
                 className="flex gap-2 overflow-x-auto pb-2 px-4 scrollbar-hide"
-                style={{ scrollSnapType: 'x mandatory' }}
+                style={{ scrollSnapType: 'x mandatory', width: '100%', maxWidth: '100vw' }}
               >
                 {trustLogos.map((company, index) => (
                   <motion.div

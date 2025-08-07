@@ -159,10 +159,10 @@ const JobListings: React.FC = () => {
         </motion.div>
 
         {/* Mobile: Horizontal scroll */}
-        <div className="block sm:hidden mb-12">
+        <div className="block sm:hidden mb-12 overflow-hidden w-full">
           <div
             className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide"
-            style={{ scrollSnapType: 'x mandatory' }}
+            style={{ scrollSnapType: 'x mandatory', width: '100%', maxWidth: '100vw' }}
           >
             {jobs.map((job, index) => (
               <motion.div
