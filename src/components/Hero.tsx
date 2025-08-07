@@ -38,20 +38,20 @@ const Hero: React.FC = () => {
   const stats: StatItem[] = [
     {
       icon: Users,
-      value: '10K+',
-      label: 'Active Job Seekers',
+      value: '500K+',
+      label: 'Professionals Matched',
       delay: 0,
     },
     {
       icon: Briefcase,
-      value: '500+',
-      label: 'Partner Companies',
+      value: '10M+',
+      label: 'Applications Processed',
       delay: 0.5,
     },
     {
       icon: TrendingUp,
       value: '95%',
-      label: 'Success Rate',
+      label: 'Match Success Rate',
       delay: 1,
     },
   ];
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
             className="inline-flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-6 py-3 rounded-full text-gray-700 dark:text-gray-300 text-sm font-medium mb-8"
           >
             <Star className="w-4 h-4 fill-current text-gray-600 dark:text-gray-400" />
-            <span>Trusted by professionals from Google, Meta, Netflix & more</span>
+            <span>Your Personal AI Career Agent - Trusted by 500K+ Professionals</span>
           </motion.div>
 
           {/* Main Headline */}
