@@ -105,8 +105,8 @@ const TabbedFeatures: React.FC = () => {
   ];
 
   return (
-    <section className="section-padding bg-white dark:bg-black pt-24">
-      <div className="container-custom">
+    <section className="section-padding bg-white dark:bg-black pt-16 sm:pt-24 overflow-x-hidden">
+      <div className="container-custom w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Why PathLink Exists Section */}
         <motion.div
           className="text-center mb-24"
@@ -205,7 +205,7 @@ const TabbedFeatures: React.FC = () => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 md:p-12"
+                className="bg-gray-50 dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12"
               >
                 <div className="text-center mb-12">
                   <h2 className="text-3xl md:text-4xl text-heading text-gray-900 dark:text-white mb-4">
@@ -226,8 +226,9 @@ const TabbedFeatures: React.FC = () => {
                       key={index}
                       className="bg-white dark:bg-gray-700 rounded-2xl p-6 hover:shadow-lg transition-all duration-200"
                       initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 + 0.2, duration: 0.6 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05, duration: 0.4 }}
                     >
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400 mt-1 flex-shrink-0" />
@@ -263,7 +264,7 @@ const TabbedFeatures: React.FC = () => {
                 initial="hidden"
                 animate="visible"
                 exit="exit"
-                className="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 md:p-12"
+                className="bg-gray-50 dark:bg-gray-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12"
               >
                 <div className="text-center mb-12">
                   <h2 className="text-3xl md:text-4xl text-heading text-gray-900 dark:text-white mb-4">
@@ -283,8 +284,9 @@ const TabbedFeatures: React.FC = () => {
                       key={index}
                       className="bg-white dark:bg-gray-700 rounded-2xl p-6 hover:shadow-lg transition-all duration-200"
                       initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 + 0.2, duration: 0.6 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05, duration: 0.4 }}
                     >
                       <div className="flex items-start space-x-3">
                         <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400 mt-1 flex-shrink-0" />

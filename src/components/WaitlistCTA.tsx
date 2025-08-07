@@ -46,13 +46,13 @@ const WaitlistCTA: React.FC = () => {
   ];
 
   return (
-    <section className="section-padding relative overflow-hidden bg-gray-50 dark:bg-gray-900">
-      <div className="container-custom relative z-10">
+    <section className="section-padding relative bg-gray-50 dark:bg-gray-900 overflow-x-hidden">
+      <div className="container-custom relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="max-w-4xl mx-auto text-center"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
           {/* Icon */}
@@ -63,11 +63,11 @@ const WaitlistCTA: React.FC = () => {
             <motion.div
               className="absolute -inset-2 gradient-bg rounded-2xl opacity-30 blur-lg"
               animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.3, 0.5, 0.3],
+                scale: [1, 1.05, 1],
+                opacity: [0.3, 0.4, 0.3],
               }}
               transition={{
-                duration: 3,
+                duration: 4,
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
@@ -75,7 +75,10 @@ const WaitlistCTA: React.FC = () => {
           </motion.div>
 
           {/* Headline */}
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-6xl font-bold mb-6">
+          <motion.h2
+            variants={itemVariants}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
+          >
             <span className="text-gray-900 dark:text-white">The workforce is changing.</span>
             <br />
             <span className="gradient-text">Don't get left behind.</span>
@@ -84,33 +87,53 @@ const WaitlistCTA: React.FC = () => {
           {/* Subtext */}
           <motion.p
             variants={itemVariants}
-            className="text-xl md:text-2xl text-body-large text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-body-large text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0"
           >
             Join the waitlist for early access to smarter matches, career insights, and the hiring
             solution built for real mobility.
           </motion.p>
 
           {/* Benefits Grid */}
-          <motion.div
-            variants={itemVariants}
-            className="grid md:grid-cols-2 gap-4 mb-12 max-w-2xl mx-auto"
-          >
-            {benefits.map((benefit, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center space-x-3 glass-effect p-4 rounded-xl"
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
-              >
-                <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400 flex-shrink-0" />
-                <span className="text-gray-700 dark:text-gray-300 font-medium">{benefit}</span>
-              </motion.div>
-            ))}
+          <motion.div variants={itemVariants} className="mb-12 max-w-2xl mx-auto">
+            {/* Mobile: Compact vertical list */}
+            <div className="block md:hidden space-y-3">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-start space-x-3 glass-effect p-3 rounded-lg"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                >
+                  <CheckCircle className="w-4 h-4 text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-sm text-gray-700 dark:text-gray-300 font-medium leading-relaxed">
+                    {benefit}
+                  </span>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Desktop: 2 column grid */}
+            <div className="hidden md:grid md:grid-cols-2 gap-4">
+              {benefits.map((benefit, index) => (
+                <motion.div
+                  key={index}
+                  className="flex items-center space-x-3 glass-effect p-4 rounded-xl"
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.4 }}
+                >
+                  <CheckCircle className="w-5 h-5 text-green-500 dark:text-green-400 flex-shrink-0" />
+                  <span className="text-gray-700 dark:text-gray-300 font-medium">{benefit}</span>
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
 
           {/* Waitlist Form */}
-          <motion.div variants={itemVariants} className="max-w-md mx-auto">
+          <motion.div variants={itemVariants} className="max-w-md mx-auto px-4 sm:px-0">
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="relative">

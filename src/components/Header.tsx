@@ -38,7 +38,7 @@ const Header: React.FC = () => {
       transition={{ duration: 0.8, ease: 'easeOut' }}
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-16 md:h-20 px-2 sm:px-0">
           {/* Logo */}
           <motion.div
             className="flex items-center space-x-2"
@@ -85,7 +85,7 @@ const Header: React.FC = () => {
           </nav>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-2">
+          <div className="md:hidden flex items-center space-x-1 sm:space-x-2">
             <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
@@ -120,7 +120,7 @@ const Header: React.FC = () => {
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-dark-surface rounded-lg shadow-lg mt-2">
+          <div className="px-4 pt-2 pb-3 space-y-1 bg-white dark:bg-dark-surface rounded-lg shadow-lg mt-2 mx-2">
             {navItems.map(item => (
               <a
                 key={item.name}
@@ -132,7 +132,7 @@ const Header: React.FC = () => {
               </a>
             ))}
             <div className="px-3 py-2">
-              <button className="btn-primary w-full">Get Started</button>
+              <button className="btn-primary w-full text-sm py-2.5">Get Started</button>
             </div>
           </div>
         </motion.div>

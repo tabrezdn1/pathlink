@@ -75,8 +75,8 @@ const Testimonial: React.FC = () => {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden bg-white dark:bg-black">
-      <div className="container-custom relative z-10">
+    <section className="section-padding relative bg-white dark:bg-black overflow-x-hidden">
+      <div className="container-custom relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -87,16 +87,16 @@ const Testimonial: React.FC = () => {
           {/* Section Header */}
           <motion.div variants={itemVariants} className="text-center mb-16">
             <motion.h2
-              className="text-3xl md:text-4xl lg:text-5xl text-heading text-gray-900 dark:text-white mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-heading text-gray-900 dark:text-white mb-6"
               initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
             >
               Trusted by professionals at leading companies
             </motion.h2>
             <motion.p
               variants={itemVariants}
-              className="text-xl text-body-large text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+              className="text-base sm:text-lg md:text-xl text-body-large text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed px-2 sm:px-0"
             >
               Join thousands of professionals who've accelerated their careers with PathLink
             </motion.p>
@@ -105,12 +105,12 @@ const Testimonial: React.FC = () => {
           {/* Company Logos Strip */}
           <motion.div
             variants={itemVariants}
-            className="mb-16 flex justify-center items-center space-x-8 opacity-60"
+            className="mb-12 sm:mb-16 flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 opacity-60 px-2 sm:px-0"
           >
             {companyLogos.map((company, index) => (
               <motion.div
                 key={company.name}
-                className={`text-2xl font-bold ${company.color}`}
+                className={`text-lg sm:text-xl lg:text-2xl font-bold ${company.color}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 0.6, y: 0 }}
                 transition={{ delay: index * 0.1 }}
@@ -124,7 +124,7 @@ const Testimonial: React.FC = () => {
           {/* Testimonials Grid */}
           <motion.div
             variants={containerVariants}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16"
           >
             {testimonials.map((testimonial, index) => (
               <motion.div
@@ -177,7 +177,7 @@ const Testimonial: React.FC = () => {
                     src={testimonial.avatar}
                     alt={testimonial.name}
                     className="w-12 h-12 rounded-full object-cover border-2 border-white dark:border-gray-600 shadow-md"
-                    whileHover={{ scale: 1.1 }}
+                    whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
                   />
                   <div>
@@ -205,7 +205,7 @@ const Testimonial: React.FC = () => {
           {/* Stats Section */}
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center"
           >
             {[
               { number: '10K+', label: 'Professionals Matched' },
@@ -221,7 +221,7 @@ const Testimonial: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05 }}
               >
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {stat.number}
                 </div>
                 <div className="text-caption text-gray-600 dark:text-gray-400">{stat.label}</div>

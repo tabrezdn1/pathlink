@@ -131,8 +131,8 @@ const JobListings: React.FC = () => {
   ];
 
   return (
-    <section className="section-padding bg-gray-50 dark:bg-dark-surface">
-      <div className="container-custom">
+    <section className="section-padding bg-gray-50 dark:bg-dark-surface overflow-x-hidden">
+      <div className="container-custom w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -140,17 +140,17 @@ const JobListings: React.FC = () => {
           className="text-center mb-16"
         >
           <motion.h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
             initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             Discover Your Next Opportunity
           </motion.h2>
           <motion.p
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed px-2 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             Browse through carefully curated job listings from top companies actively hiring
@@ -158,12 +158,88 @@ const JobListings: React.FC = () => {
           </motion.p>
         </motion.div>
 
+        {/* Mobile: Horizontal scroll */}
+        <div className="block sm:hidden mb-12">
+          <div
+            className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide"
+            style={{ scrollSnapType: 'x mandatory' }}
+          >
+            {jobs.map((job, index) => (
+              <motion.div
+                key={job.id}
+                variants={cardVariants}
+                className={`flex-shrink-0 w-72 cursor-pointer ${job.bgGradient} rounded-xl p-4 border ${job.borderColor} hover:shadow-lg transition-all duration-300 relative overflow-hidden`}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                whileHover={{ y: -2, scale: 1.01 }}
+              >
+                {/* Header */}
+                <div className="flex items-start justify-between mb-3 relative z-10">
+                  <div className="flex-1">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-primary-600 dark:group-hover:text-primary-300 transition-colors duration-200">
+                      {job.title}
+                    </h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 font-medium">
+                      {job.company}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Location & Type */}
+                <div className="flex items-center space-x-3 mb-3 text-xs text-gray-600 dark:text-gray-400 relative z-10">
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="w-3 h-3" />
+                    <span>{job.location}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Clock className="w-3 h-3" />
+                    <span>{job.type}</span>
+                  </div>
+                </div>
+
+                {/* Salary */}
+                <div className="flex items-center space-x-1 mb-3 text-gray-700 dark:text-gray-300 relative z-10">
+                  <DollarSign className="w-3 h-3" />
+                  <span className="text-sm font-semibold">{job.salary}</span>
+                </div>
+
+                {/* Skills */}
+                <div className="mb-4 relative z-10">
+                  <div className="flex flex-wrap gap-1">
+                    {job.skills.slice(0, 3).map(skill => (
+                      <span
+                        key={skill}
+                        className="px-2 py-1 bg-white/60 dark:bg-gray-800/60 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                    {job.skills.length > 3 && (
+                      <span className="px-2 py-1 bg-white/60 dark:bg-gray-800/60 text-gray-700 dark:text-gray-300 text-xs font-medium rounded-full">
+                        +{job.skills.length - 3}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                {/* Action */}
+                <div className="flex items-center justify-end relative z-10">
+                  <ArrowRight
+                    className={`w-4 h-4 ${job.accentColor} transform group-hover:translate-x-1 transition-transform duration-200`}
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+          className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          animate="visible"
         >
           {jobs.map((job, index) => (
             <motion.div
@@ -193,8 +269,9 @@ const JobListings: React.FC = () => {
                   className={`w-3 h-3 rounded-full ${job.accentColor.replace('text-', 'bg-')} opacity-0 group-hover:opacity-100`}
                   initial={{ scale: 0 }}
                   whileInView={{ scale: 1 }}
-                  transition={{ delay: index * 0.1 + 0.5 }}
-                  whileHover={{ scale: 1.5 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                  whileHover={{ scale: 1.2 }}
                 />
               </div>
 
@@ -229,7 +306,7 @@ const JobListings: React.FC = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       transition={{ delay: index * 0.1 + skillIndex * 0.05 }}
-                      whileHover={{ scale: 1.1 }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       {skill}
                     </motion.span>
@@ -245,7 +322,7 @@ const JobListings: React.FC = () => {
                 <span className="text-sm text-gray-500 dark:text-gray-400">
                   In-Demand Section Cards Pattern
                 </span>
-                <motion.div whileHover={{ scale: 1.1, rotate: 45 }} transition={{ duration: 0.2 }}>
+                <motion.div whileHover={{ scale: 1.05, rotate: 15 }} transition={{ duration: 0.2 }}>
                   <ArrowRight
                     className={`w-5 h-5 ${job.accentColor} transform group-hover:translate-x-1 transition-transform duration-200`}
                   />
@@ -259,8 +336,8 @@ const JobListings: React.FC = () => {
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 1.5 }}
         >
           <motion.button
             className="btn-primary flex items-center space-x-2 mx-auto relative overflow-hidden group"

@@ -78,8 +78,8 @@ const AICopilot: React.FC = () => {
   ];
 
   return (
-    <section className="section-padding bg-gray-50 dark:bg-gray-900">
-      <div className="container-custom">
+    <section className="section-padding bg-gray-50 dark:bg-gray-900 overflow-x-hidden">
+      <div className="container-custom w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-20"
           initial="hidden"
@@ -97,14 +97,14 @@ const AICopilot: React.FC = () => {
 
           <motion.h2
             variants={itemVariants}
-            className="text-3xl md:text-4xl lg:text-5xl text-display text-gray-900 dark:text-white mb-6"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-display text-gray-900 dark:text-white mb-6"
           >
             Built by Job Seekers, <span className="gradient-text">for Job Seekers</span>
           </motion.h2>
 
           <motion.p
             variants={itemVariants}
-            className="text-xl text-body-large text-gray-600 dark:text-gray-300 max-w-4xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-body-large text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed px-2 sm:px-0"
           >
             PathLink's AI Copilot acts as your personal talent agent, analyzing millions of data
             points to accelerate your career journey and connect you with opportunities you never
@@ -114,55 +114,77 @@ const AICopilot: React.FC = () => {
 
         {/* Success Metrics */}
         <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-20"
+          className="mb-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
-          {successMetrics.map((metric, _index) => (
-            <motion.div
-              key={metric.label}
-              variants={itemVariants}
-              className="text-center group"
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2 group-hover:gradient-text transition-all duration-300">
-                {metric.number}
-              </div>
-              <div className="text-caption text-gray-600 dark:text-gray-400">{metric.label}</div>
-            </motion.div>
-          ))}
+          {/* Mobile: 2x2 Compact Grid */}
+          <div className="grid grid-cols-2 gap-4 sm:hidden">
+            {successMetrics.map((metric, _index) => (
+              <motion.div
+                key={metric.label}
+                variants={itemVariants}
+                className="text-center bg-white dark:bg-gray-800 rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-700"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className="text-2xl font-bold text-gray-900 dark:text-white mb-1 group-hover:gradient-text transition-all duration-300">
+                  {metric.number}
+                </div>
+                <div className="text-xs text-gray-600 dark:text-gray-400 leading-tight">
+                  {metric.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop: 4 Column Grid */}
+          <div className="hidden sm:grid sm:grid-cols-4 gap-6 lg:gap-8">
+            {successMetrics.map((metric, _index) => (
+              <motion.div
+                key={metric.label}
+                variants={itemVariants}
+                className="text-center group"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 group-hover:gradient-text transition-all duration-300">
+                  {metric.number}
+                </div>
+                <div className="text-caption text-gray-600 dark:text-gray-400">{metric.label}</div>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
 
         {/* AI Features Grid */}
         <motion.div
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
           {features.map((feature, _index) => (
             <motion.div
               key={feature.title}
               variants={itemVariants}
-              className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
-              whileHover={{ y: -5 }}
+              className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              whileHover={{ y: -2 }}
             >
-              <div className="w-16 h-16 gradient-bg rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-8 h-8 text-white dark:text-gray-900" />
+              <div className="w-12 sm:w-16 h-12 sm:h-16 gradient-bg rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-105 transition-transform duration-300">
+                <feature.icon className="w-6 sm:w-8 h-6 sm:h-8 text-white dark:text-gray-900" />
               </div>
 
-              <h3 className="text-heading text-gray-900 dark:text-white mb-4 text-xl font-semibold">
+              <h3 className="text-heading text-gray-900 dark:text-white mb-3 sm:mb-4 text-base sm:text-lg lg:text-xl font-semibold leading-tight">
                 {feature.title}
               </h3>
 
-              <p className="text-body text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+              <p className="text-sm text-body text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 leading-relaxed">
                 {feature.description}
               </p>
 
-              <div className="inline-flex items-center space-x-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-3 py-1 rounded-full text-sm font-medium">
+              <div className="inline-flex items-center space-x-1 sm:space-x-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                 <CheckCircle className="w-3 h-3" />
                 <span>{feature.benefit}</span>
               </div>
@@ -175,12 +197,12 @@ const AICopilot: React.FC = () => {
           className="text-center mt-20"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
+          viewport={{ once: true, margin: '-50px' }}
           variants={containerVariants}
         >
           <motion.h3
             variants={itemVariants}
-            className="text-2xl md:text-3xl text-heading text-gray-900 dark:text-white mb-6"
+            className="text-xl sm:text-2xl md:text-3xl text-heading text-gray-900 dark:text-white mb-6"
           >
             Ready to experience the future of job searching?
           </motion.h3>
