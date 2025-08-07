@@ -16,11 +16,13 @@ A modern, responsive landing page built with **React 18** and **TypeScript**, in
 ## 🎨 Design Features
 
 ### Color Palette
+
 - **Primary**: `#05324f` (Pathlink brand color)
 - **Supporting**: Black, white, and carefully chosen gradients
 - **Dark Mode**: Full dark theme support with custom palette
 
 ### Animations
+
 - **Staggered entrance animations** for sections
 - **Hover effects** on all interactive elements
 - **Scroll-triggered animations** with Intersection Observer
@@ -28,6 +30,7 @@ A modern, responsive landing page built with **React 18** and **TypeScript**, in
 - **Micro-interactions** for enhanced UX
 
 ### Responsive Design
+
 - **Mobile-first** approach
 - **Breakpoints**: `sm: 640px`, `md: 768px`, `lg: 1024px`, `xl: 1280px`
 - **Fluid typography** and spacing
@@ -56,11 +59,13 @@ src/
 ## 🔧 Development Tools
 
 ### Code Quality
+
 - **ESLint**: Code linting with TypeScript support
 - **Prettier**: Code formatting with consistent style
 - **TypeScript**: Type safety and better developer experience
 
 ### Available Scripts
+
 ```bash
 npm start          # Start development server
 npm run build      # Create production build
@@ -73,6 +78,7 @@ npm run type-check # TypeScript type checking
 ## 🎪 Animation System
 
 ### Framer Motion Variants
+
 ```typescript
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -91,13 +97,14 @@ const itemVariants = {
     opacity: 1,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
+      ease: 'easeOut',
     },
   },
 };
 ```
 
 ### Animation Types
+
 1. **Entrance Animations**: Staggered fade-in with slide-up
 2. **Hover Effects**: Scale, translate, and color transitions
 3. **Loading States**: Skeleton screens and smooth transitions
@@ -107,12 +114,14 @@ const itemVariants = {
 ## 🌙 Theme System
 
 ### Implementation
+
 - **Context-based** theme management
 - **localStorage** persistence
 - **System preference** detection
 - **Smooth transitions** between themes
 
 ### Custom CSS Properties
+
 ```css
 :root {
   --primary-500: #05324f;
@@ -124,24 +133,28 @@ const itemVariants = {
 ## 📱 Components Overview
 
 ### Header
+
 - **Sticky navigation** with blur effect
 - **Theme toggle** with icon animation
 - **Mobile menu** with slide animations
 - **Logo hover** effects
 
 ### Hero Section
+
 - **Animated statistics** with counters
 - **Floating background** elements
 - **Gradient text** effects
 - **CTA buttons** with hover states
 
 ### Job Listings
+
 - **Card hover** animations
 - **Skill tags** with micro-interactions
 - **Gradient backgrounds** per category
 - **Staggered loading** animation
 
 ### FAQ Section
+
 - **Expandable items** with smooth height transitions
 - **Category badges** with color coding
 - **Icon animations** on expand/collapse
@@ -149,18 +162,21 @@ const itemVariants = {
 ## 🔄 Best Practices
 
 ### TypeScript
+
 - **Strict typing** enabled
 - **Interface definitions** for all props
 - **Proper error handling** with type guards
 - **Generic components** where appropriate
 
 ### Performance
+
 - **Code splitting** with React.lazy (ready for implementation)
 - **Image optimization** strategies
 - **Bundle size** monitoring
 - **Animation performance** optimization
 
 ### Accessibility
+
 - **Semantic HTML** structure
 - **ARIA labels** where needed
 - **Keyboard navigation** support
@@ -170,17 +186,20 @@ const itemVariants = {
 ## 🚀 Deployment Ready
 
 ### Production Build
+
 ```bash
 npm run build
 ```
 
 ### Environment Variables
+
 ```env
 REACT_APP_API_URL=your_api_url
 REACT_APP_ANALYTICS_ID=your_analytics_id
 ```
 
 ### Performance Optimizations
+
 - **Tree shaking** enabled
 - **CSS purging** with Tailwind
 - **Image compression** ready
@@ -189,6 +208,7 @@ REACT_APP_ANALYTICS_ID=your_analytics_id
 ## 🔮 Future Enhancements
 
 ### Planned Features
+
 1. **Internationalization** (i18n) support
 2. **Advanced animations** with GSAP
 3. **Progressive Web App** features
@@ -196,6 +216,7 @@ REACT_APP_ANALYTICS_ID=your_analytics_id
 5. **A/B testing** framework
 
 ### Performance Improvements
+
 1. **Virtual scrolling** for large lists
 2. **Image lazy loading** with blur placeholders
 3. **Service worker** caching
@@ -204,6 +225,7 @@ REACT_APP_ANALYTICS_ID=your_analytics_id
 ## 📞 Support
 
 For technical questions or contributions:
+
 - Check the component documentation
 - Review TypeScript interfaces
 - Run linting tools before commits
