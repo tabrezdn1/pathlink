@@ -1,6 +1,6 @@
 # Pathlink Landing Page
 
-A modern, responsive landing page built with **React 18 + TypeScript**, inspired by the [JobHunt website](https://jobhunt.framer.website/) with custom Pathlink branding. Features professional animations, dark/light theme support, and enterprise-grade development tooling.
+A modern, responsive landing page built with **React 18 + TypeScript**, with Pathlink branding. Features professional animations, dark/light theme support, and enterprise-grade development tooling.
 
 ## 🚀 Features
 
